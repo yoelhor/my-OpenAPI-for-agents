@@ -26,6 +26,7 @@ builder.Services.AddSwaggerGen(c =>
         c.AddServer(new OpenApiServer { Url = "http://localhost:5292" });
     }
 
+    // To get the swagger document, go to https://localhost:5292/swagger/v1/swagger.json
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "My OpenAPI for agents demo API",

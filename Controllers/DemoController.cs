@@ -12,8 +12,9 @@ public class DemoController : ControllerBase
 
     [HttpGet("api/info")]
     [SwaggerOperation(
-        Summary = "Gets web My OpenAPI for agents demo information", 
-        OperationId = "GetOpenApiInfo")]
+        Summary = "Gets the Online Ticketing demo API information", 
+        OperationId = "GetOpenApiInfo",
+        Description = "Gets the Online Ticketing demo API information including version and service name.")]
     [ProducesResponseType(typeof(string), 200)]
     public async Task<ActionResult<string>> GetOpenApiInfo()
     {
