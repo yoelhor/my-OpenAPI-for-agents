@@ -14,7 +14,7 @@ public class DemoController : ControllerBase
     [SwaggerOperation(
         Summary = "Gets the Online Ticketing demo API information", 
         OperationId = "GetOpenApiInfo",
-        Description = "Gets the Online Ticketing demo API information including version and service name.")]
+        Description = "Gets the Online Ticketing demo API information including version and servicea name.")]
     [ProducesResponseType(typeof(string), 200)]
     public async Task<ActionResult<string>> GetOpenApiInfo()
     {
