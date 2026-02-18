@@ -28,7 +28,8 @@ public class DemoController : ControllerBase
         return Ok(new ApiInfoResponse
         {
             Version = version,
-            Service = serviceName
+            Service = serviceName,
+            Date = $"{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss")} UTC"
         });
     }
 
@@ -40,8 +41,11 @@ public class DemoController : ControllerBase
         [SwaggerSchema("The current version of the web API", ReadOnly = true)]
         public string Version { get; set; } = string.Empty;
 
-        [SwaggerSchema("The identifier for the specific service")]
+        [SwaggerSchema("The identifier for the specific service", ReadOnly = true)]
         public string Service { get; set; } = string.Empty;
+
+        [SwaggerSchema("The current date and time of the API response", ReadOnly = true)]
+        public string Date { get; set; } = string.Empty;
     }
 }
 
