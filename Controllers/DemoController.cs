@@ -12,7 +12,7 @@ public class DemoController : ControllerBase
 
     [HttpGet("api/info")]
     [SwaggerOperation(
-            Summary = "Gets the Online Ticketing demo API information 111",
+            Summary = "Gets the Online Ticketing demo API information",
             OperationId = "GetOpenApiInfo",
             Description = "Gets the Online Ticketing demo API information including version and service name.")]
     [ProducesResponseType(typeof(ApiInfoResponse), 200)] // Reference the new class here

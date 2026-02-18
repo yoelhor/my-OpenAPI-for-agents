@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging.AzureAppServices;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
+// Enable Application Insights telemetry collection.
+builder.Services.AddApplicationInsightsTelemetry();
+
+// Add Azure stream log service
+builder.Logging.AddAzureWebAppDiagnostics();
+builder.Services.Configure<AzureFileLoggerOptions>(options =>
+{
+    options.FileName = "azure-diagnostics-";
+    options.FileSizeLimit = 50 * 1024;
+    options.RetainedFileCountLimit = 5;
+});
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -43,6 +55,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+// Add request logging middleware
+app.UseMiddleware<RequestLoggingMiddleware>();
+
+// Map controller routes
 app.MapControllers();
 app.UseHttpsRedirection();
 
