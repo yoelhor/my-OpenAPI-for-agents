@@ -24,6 +24,23 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.EnableAnnotations();
 
+    // c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    // {
+    //     Type = SecuritySchemeType.OAuth2,
+    //     Flows = new OpenApiOAuthFlows
+    //     {
+    //         Implicit = new OpenApiOAuthFlow
+    //         {
+    //             AuthorizationUrl = new Uri("https://login.microsoftonline.com/common/oauth2/v2.0/authorize"),
+                
+    //             Scopes = new Dictionary<string, string>
+    //             {
+    //                 { "api://057837bb-97ba-4e52-8d90-74d4b2cb487c/mymcp.read", "Access the API" }
+    //             }
+    //         }
+    //     }
+    // });
+
     // Get the Azure hostname
     var websiteHostname = Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME");
     
